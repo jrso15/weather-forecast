@@ -3,7 +3,7 @@ import styles from "../styles/Weather.module.scss";
 const Weather = ({ weatherData, onClickBack }) => {
   return (
     <>
-      <h1>{weatherData?.name}</h1>
+      <h1 className={styles.name}>{weatherData?.name}</h1>
       <div className={styles.weather}>
         <div className={styles.weather__grid}>
           <div className={styles.weather__grid_item}>
@@ -59,7 +59,9 @@ const Weather = ({ weatherData, onClickBack }) => {
           </div>
         </div>
       </div>
-      <button onClick={onClickBack}>back</button>
+      <div className={styles.btn}>
+        <button onClick={onClickBack}>back</button>
+      </div>
     </>
   );
 };
