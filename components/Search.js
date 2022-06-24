@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-const Search = () => {
+const Search = ({ sessionCredentials }) => {
   const apiKey = process.env.API_KEY;
   const apiUrl = process.env.API_URL;
   const [weatherData, setWeatherData] = useState(null);
   const [textValue, setTextValue] = useState("");
+  const [showWeather, setShowWeather] = useState(true);
 
   const fetchData = async () => {
     const res = await fetch(
@@ -18,26 +19,41 @@ const Search = () => {
   const handleDisplayWeather = (e) => {
     e.preventDefault();
     fetchData();
+    setShowWeather(false);
+  };
+
+  const handleBack = () => {
+    setShowWeather(true);
   };
 
   console.log("text", weatherData);
 
   return (
     <div>
-      search
-      <form onSubmit={handleDisplayWeather}>
-        <input
-          text="text"
-          value={textValue}
-          required="required"
-          onChange={(e) => {
-            setTextValue(e.currentTarget.value);
-          }}
-        />
-        <button type="submit">display weather</button>
-      </form>
-      {weatherData?.name}
-      {weatherData?.weather[0].description}
+      {showWeather ? (
+        <>
+          <h2>{sessionCredentials.user.name}</h2>
+          <h2>{sessionCredentials.user.email}</h2>
+          search
+          <form onSubmit={handleDisplayWeather}>
+            <input
+              text="text"
+              value={textValue}
+              required="required"
+              onChange={(e) => {
+                setTextValue(e.currentTarget.value);
+              }}
+            />
+            <button type="submit">display weather</button>
+          </form>
+        </>
+      ) : (
+        <>
+          {weatherData?.name}
+          {weatherData?.weather[0].description}{" "}
+          <button onClick={handleBack}>back</button>
+        </>
+      )}
     </div>
   );
 };
