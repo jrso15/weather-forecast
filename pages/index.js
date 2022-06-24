@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Head from "../components/Head";
+import { useSession, signIn } from "next-auth/react";
 import LogIn from "../components/Login";
 import LogOut from "../components/Logout";
+import Head from "../components/Head";
+import Header from "../components/header";
 import Search from "../components/Search";
+import Footer from "../components/Footer";
 import styles from "../styles/Home.module.scss";
 
 const Home = () => {
@@ -13,15 +14,15 @@ const Home = () => {
     <div className={styles.container}>
       <Head title="Weather Forecast" />
 
+      <Header />
       <main className={styles.main}>
         {!session && <LogIn signIn={signIn} />}
 
         {session && <Search sessionCredentials={session} />}
 
-        {/* <LogOut signOut={signOut} /> */}
       </main>
 
-      <footer className={styles.footer}></footer>
+      <Footer />
     </div>
   );
 };

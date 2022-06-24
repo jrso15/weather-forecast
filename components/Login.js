@@ -1,8 +1,10 @@
+import styles from "../styles/Home.module.scss";
+
 const LogIn = ({ signIn }) => {
   return (
     <>
-      <p> Welcome to the weather forecast web application.</p>
-      <p>
+      <p className={styles.description}> Welcome to the weather forecast web application.</p>
+      <p className={styles.description}>
         Please login with yout Githuib user to use the application and view the
         weather in your city.
       </p>
