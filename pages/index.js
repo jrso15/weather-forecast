@@ -1,7 +1,10 @@
+import { useState } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Head from "../components/Head";
+import LogIn from "../components/Login";
+import LogOut from "../components/Logout";
 import Search from "../components/Search";
 import styles from "../styles/Home.module.scss";
-import { useSession, signIn, signOut } from "next-auth/react";
 
 const Home = () => {
   const { data: session } = useSession();
@@ -11,25 +14,11 @@ const Home = () => {
       <Head title="Weather Forecast" />
 
       <main className={styles.main}>
-        {!session && (
-          <>
-            <p> Welcome to the weather forecast web application.</p>
-            <p>
-              Please login with yout Githuib user to use the application and
-              view the weather in your city.
-            </p>
-            <button onClick={signIn}>Login</button>
-          </>
-        )}
+        {!session && <LogIn signIn={signIn} />}
 
-        {session && (
-          <>
-            <p> {session.user.name}</p>
-            <h1> https://github.com/{session.user.url} </h1> <br />
-            <Search />
-            <button onClick={signOut}>Sign out</button>
-          </>
-        )}
+        {session && <Search sessionCredentials={session} />}
+
+        <LogOut signOut={signOut} />
       </main>
 
       <footer className={styles.footer}></footer>
