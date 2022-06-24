@@ -18,7 +18,7 @@ const Home = () => {
 
         {session && <Search sessionCredentials={session} />}
 
-        <LogOut signOut={signOut} />
+        {/* <LogOut signOut={signOut} /> */}
       </main>
 
       <footer className={styles.footer}></footer>

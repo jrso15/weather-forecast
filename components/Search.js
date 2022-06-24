@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Weather from "./Weather";
 
 const Search = ({ sessionCredentials }) => {
   const apiKey = process.env.API_KEY;
@@ -32,8 +33,8 @@ const Search = ({ sessionCredentials }) => {
     <div>
       {showWeather ? (
         <>
-          <h2>{sessionCredentials.user.name}</h2>
-          <h2>{sessionCredentials.user.email}</h2>
+          <h2>Hello, {sessionCredentials.user.name}!</h2>
+          <p>{sessionCredentials.user.email}</p>
           search
           <form onSubmit={handleDisplayWeather}>
             <input
@@ -48,11 +49,7 @@ const Search = ({ sessionCredentials }) => {
           </form>
         </>
       ) : (
-        <>
-          {weatherData?.name}
-          {weatherData?.weather[0].description}{" "}
-          <button onClick={handleBack}>back</button>
-        </>
+        <Weather weatherData={weatherData} onClickBack={handleBack} />
       )}
     </div>
   );
