@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Head from "../components/Head";
+import Search from "../components/Search";
 import styles from "../styles/Home.module.scss";
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -25,8 +25,8 @@ const Home = () => {
         {session && (
           <>
             <p> {session.user.name}</p>
-            <h1> https://github.com/{session.user.name} </h1> <br />
-            <input text="text" />
+            <h1> https://github.com/{session.user.url} </h1> <br />
+            <Search />
             <button onClick={signOut}>Sign out</button>
           </>
         )}
