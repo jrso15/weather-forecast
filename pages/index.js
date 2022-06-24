@@ -1,30 +1,32 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import React from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import Head from "../components/Head";
+import styles from "../styles/Home.module.scss";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Home = () => {
   const { data: session } = useSession();
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Weather App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head title="Weather Forecast" />
 
       <main className={styles.main}>
         {!session && (
           <>
-            <h1>Welcome!</h1> <br />
-            <button onClick={signIn}>Sign in</button>
+            <p> Welcome to the weather forecast web application.</p>
+            <p>
+              Please login with yout Githuib user to use the application and
+              view the weather in your city.
+            </p>
+            <button onClick={signIn}>Login</button>
           </>
         )}
 
         {session && (
           <>
-            <h1>Signed in as {session.user.email} </h1> <br />
+            <p> {session.user.name}</p>
+            <h1> https://github.com/{session.user.name} </h1> <br />
+            <input text="text" />
             <button onClick={signOut}>Sign out</button>
           </>
         )}
