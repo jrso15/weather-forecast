@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Weather from "./Weather";
+import styles from "../styles/Search.module.scss";
 
 const Search = ({ sessionCredentials }) => {
   const apiKey = process.env.API_KEY;
@@ -27,23 +28,24 @@ const Search = ({ sessionCredentials }) => {
     setShowWeather(true);
   };
 
-  console.log("text", weatherData);
 
   return (
-    <div>
+    <>
       {showWeather ? (
         <>
-          <h2>Hello, {sessionCredentials.user.name}!</h2>
+          <h2 className={styles.title}>Hello, {sessionCredentials.user.name}!</h2>
           <p>{sessionCredentials.user.email}</p>
-          search
-          <form onSubmit={handleDisplayWeather}>
+          <form onSubmit={handleDisplayWeather} className={styles.form}>
             <input
               text="text"
               value={textValue}
+              placeholder="Enter your City"
               required="required"
+              className={styles.field}
               onChange={(e) => {
                 setTextValue(e.currentTarget.value);
               }}
+
             />
             <button type="submit">display weather</button>
           </form>
@@ -51,7 +53,7 @@ const Search = ({ sessionCredentials }) => {
       ) : (
         <Weather weatherData={weatherData} onClickBack={handleBack} />
       )}
-    </div>
+    </>
   );
 };
 
