@@ -8,7 +8,7 @@ const LogIn = ({ signIn }) => {
         Please login with your Github user to use the application and view the
         weather in your city.
       </p>
-      <button onClick={signIn}>Login</button>
+      <button onClick={signIn}>Log in</button>
     </>
   );
 };
