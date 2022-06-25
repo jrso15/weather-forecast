@@ -1,16 +1,24 @@
+import Moment from 'moment';
 import styles from "../styles/Weather.module.scss";
 
 const Weather = ({ weatherData, onClickBack }) => {
+
+  const toTimestamp = ()=> {
+    var date = Moment().format('MM/DD/YYYY')
+    return date;
+  }
+
   return (
     <>
       <h1 className={styles.name}>{weatherData?.name}</h1>
+      
       <div className={styles.weather}>
         <div className={styles.weather__grid}>
           <div className={styles.weather__grid_item}>
-            <h3>Date</h3>
+            <h3>Date <span>(mm/dd/yyyy)</span></h3>
           </div>
           <div className={styles.weather__grid_item}>
-            <p>{weatherData?.dt}</p>
+            <p>{toTimestamp(weatherData?.dt)}</p>
           </div>
         </div>
 
