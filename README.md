@@ -19,7 +19,7 @@ To run the project on your localhost:
   1. Clone the repository and run `https://github.com/jrso15/weather-forecast.git`
   2. Go to the project `cd weather-forecast`
   3. Get the required node modules by installing `npm i` or `npm install`
-  4. Create a `.env.local` to store the required environments.
+  4. Create a `.env.local` file to store the required environments.
   5. Change the required values for keys/secrets in `next.config.js`.
   6. Run `npm run dev` to run the project.
   7. Confirm everything is set up properly by opening [http://localhost:3000](http://localhost:3000) in your browser.
