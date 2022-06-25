@@ -1,6 +1,5 @@
 import { useSession, signIn } from "next-auth/react";
 import LogIn from "../components/Login";
-import LogOut from "../components/Logout";
 import Head from "../components/Head";
 import Header from "../components/header";
 import Search from "../components/Search";

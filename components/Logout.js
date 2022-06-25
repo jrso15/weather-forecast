@@ -1,5 +1,5 @@
 const LogOut = ({ signOut }) => {
-  return <button onClick={signOut}>Sign out</button>;
+  return <button onClick={signOut}>Log out</button>;
 };
 
 export default LogOut;
