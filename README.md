@@ -12,7 +12,7 @@ A basic Next.js Web Application that you can login using github and search the w
 * `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${api_key}`
 
 ### Styling
-* Weather forecast used mobile-first approach, CSS modules, sass and BEM-Methodology for styling.
+* Weather forecast used mobile-first approach, CSS modules, SASS and BEM-Methodology for styling.
 
 ### Running the local environment ###
 
