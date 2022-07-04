@@ -9,7 +9,7 @@ const Search = ({ sessionCredentials }) => {
   const [textValue, setTextValue] = useState("");
   const [showWeather, setShowWeather] = useState(true);
 
-  const fetchData = async () => {
+  const fetchWeatherData = async () => {
     const res = await fetch(
       `${apiUrl}data/2.5/weather?q=${textValue}&appid=${apiKey}`
     );
@@ -20,11 +20,12 @@ const Search = ({ sessionCredentials }) => {
 
   const handleDisplayWeather = (e) => {
     e.preventDefault();
-    fetchData();
+    
+    fetchWeatherData();
     setShowWeather(false);
   };
 
-  const handleBack = () => {
+  const handleBackButton = () => {
     setShowWeather(true);
   };
 
@@ -33,6 +34,7 @@ const Search = ({ sessionCredentials }) => {
     <>
       <h2 className={styles.title}>Hello, {sessionCredentials.user.name}!</h2>
       <p>{sessionCredentials.user.email}</p>
+
       <form onSubmit={handleDisplayWeather} className={styles.form}>
         <input
           text="text"
@@ -43,13 +45,13 @@ const Search = ({ sessionCredentials }) => {
           onChange={(e) => {
             setTextValue(e.currentTarget.value);
           }}
-
         />
+
         <button type="submit">display weather</button>
       </form>
     </>
   ) : (
-    <Weather weatherData={weatherData} onClickBack={handleBack} />
+    <Weather weatherData={weatherData} onClickBack={handleBackButton} />
   );
 };
 

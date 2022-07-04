@@ -4,7 +4,7 @@ import styles from "../styles/Weather.module.scss";
 const Weather = ({ weatherData, onClickBack }) => {
 
   const toTimestamp = (timestamp)=> {
-    var date = Moment(timestamp).format('MM/DD/YYYY')
+    const date = Moment(timestamp).format('MM/DD/YYYY')
     return date;
   }
 
