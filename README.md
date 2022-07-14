@@ -17,8 +17,8 @@ A basic Next.js Web Application that you can login using github and search the w
 ### Running the local environment ###
 
 To run the project on your localhost:
-  1. Clone the repository and run `git clone https://github.com/jrso15/weather-forecast.git`.
-  2. Go to the project `cd weather-forecast`
+  1. Clone the repository and run `git clone https://github.com/jrso15/weather-forecast-nextjs.git`.
+  2. Go to the project `cd weather-forecast-nextjs`
   3. Get the required node modules by installing `npm i` or `npm install`
   4. Change the required values for keys/secrets in `next.config.js`.
   5. Run `npm run dev` to run the project.
