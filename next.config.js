@@ -5,9 +5,8 @@ module.exports = {
     defaultLocale: "en",
   },
   images: {
-    domains: "",
+    domains: [],
     loader: "imgix",
-    path: "",
   },
   exportPathMap: function () {
     return {
