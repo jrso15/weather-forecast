@@ -1,7 +1,7 @@
 import { useSession, signIn } from "next-auth/react";
 import Head from "../components/Head";
 import LogIn from "../components/Login";
-import Header from "../components/header";
+import Header from "../components/Header";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
 import styles from "../styles/Home.module.scss";
