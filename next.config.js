@@ -7,6 +7,7 @@ module.exports = {
   images: {
     domains: [],
     loader: "imgix",
+    path: "",
   },
   exportPathMap: function () {
     return {
